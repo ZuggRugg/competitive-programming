@@ -23,23 +23,42 @@ public:
 };
 
 
+
 // my new solution using just the substr method for c++
+// this would theoretically work except for a million stupid fucking edge cases
+// O(mn) time complexity
 class Solution {
 public:
-    string longestCommonPrefix(vector<string>& strs) {
-        if(strs.size() == 0 ) { return ""; }
+  string longestCommonPrefix(vector<string>& strs) {
+    if(strs.size() == 0 ) { return ""; }
         
-         if(strs[0][0] != strs[1][0]) {
-            return "";
-        }
-
-        std::string ans = "";
-        ans = ans + strs[0][0];
-        int l = 0;
-
-        for(size_t i = 0; i<strs.size(); i++) {
-           if(strs[i].substr(0, l) != ans) { return ans; }
-           else { ++l; ans = ans + strs[0][l]; }
-        }
+    if(strs[0][0] != strs[1][0]) {
+      return "";
     }
+
+    std::string ans = "";
+    ans = ans + strs[0][0];
+    int l = 1;
+
+    for(size_t j = 0; j<strs[0].length(); j++) {
+      for(size_t i = 0; i<strs.size(); i++) {
+	if(l > strs[i].length || strs[i].substr(0, l) != ans) { return ans.substr(0, l-1); }      
+      }
+      if(l < strs[0].length()) {
+      ++l; ans = ans + strs[0][l-1];
+      }
+    }
+    return "";
+  }
 };
+
+
+// scratch work
+for(size_t j = 0; j<strs[0].length(); j++) {
+  for(size_t i = 0; i<strs.size(); i++) {
+    if(strs[i].substr(0, l) != ans) { return ans; }      
+  } 
+  else { ++l; ans = ans + strs[0][l];}
+ }
+
+
