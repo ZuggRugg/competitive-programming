@@ -22,23 +22,27 @@ using namespace std;
 using vi = vector<int>;
 
 void solve() {
-    int n; int m;
+  int n; int m;
 
-    cin >> n >> m;
+  cin >> n >> m;
 
-    vi arr[n], brr[m];
+  int arr[n];
+  int brr[m];
 
-    for(size_t i1=0; i1<n; i1++) { cin >> arr[i1]; }
-    for(size_t j1=0; j1<m; j1++) { cin >> brr[j1]; }
-    int i = 0; int j = 0;    //Two Pointers
+  for(int i1=0; i1<n; i1++) { cin >> arr[i1]; }
+  for(int j1=0; j1<m; j1++) { cin >> brr[j1]; }
+  int i = 0; int j = 0;    //Two Pointers
+  int k = 0;
     
-    vi crr[n+m]; // combined array
+  int crr[n+m]; // combined array
 
-    while(i < arr.size() || j < brr.size()) {
-      if(arr[i] < brr[j]) { crr.push_back(arr[i]); ++i; }
-      else { crr.push_back(brr[j]); ++j;}
-    }    
-    // check if condition for not going out of bounds and then see if this template file works
+  while(i < n || j < m) {
+    if((j==m) || (i<n && arr[i] < brr[j])) { crr[k] = arr[i]; ++i; ++k; }
+    else { crr[k] = brr[j]; ++j; ++k; }
+  }    
+  // check if condition for not going out of bounds and then see if this template file works
+
+  for(int i=0; i<k; i++) { cout << crr[i] << " "; }
 
 }
 
