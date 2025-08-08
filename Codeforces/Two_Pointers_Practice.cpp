@@ -1,22 +1,4 @@
 #include <bits/stdc++.h>
-#include <iostream>
-#include <limits.h>
-#include <cstdint>
-#include <vector>
-#include <string>
-#include <math.h>
-#include <algorithm>
-#include <numeric>
-#include <map>
-#include <unordered_map>
-#include <set>
-#include <cstring>
-#include <deque>
-#include <stack>
-#include <queue>
-#include <utility> 
-#include <iomanip>      // std::setprecision
-#include <sstream>      // std::stringstream
 
 using namespace std;
 using vi = vector<int>;
@@ -26,12 +8,15 @@ void solve() {
 
   cin >> n >> m;
 
+  cout << "n: " << n << ", m: " << m << endl;
+
   int arr[n];
   int brr[m];
 
   for(int i1=0; i1<n; i1++) { cin >> arr[i1]; }
   for(int j1=0; j1<m; j1++) { cin >> brr[j1]; }
   int i = 0; int j = 0;    //Two Pointers
+
   int k = 0;
     
   int crr[n+m]; // combined array
@@ -47,12 +32,14 @@ void solve() {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
+//   ios::sync_with_stdio(false);
+//   cin.tie(0);
 
-    int t;
-    cin >> t;
-    while (t--) solve();
+//   int t;
+//   cin >> t;
+//   while (t--) solve();
+  solve();
+  return 0;
 }
 
 
