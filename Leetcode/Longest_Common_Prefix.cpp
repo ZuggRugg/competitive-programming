@@ -23,10 +23,33 @@ public:
 };
 
 
+// The Common solution where you take the shortest string and then slowly decrease the length
+// until you find the correct prefix
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+      if(strs.size() == 0) { return ""; }
+      
+      sort(strs.begin(), strs.end(), sort_l());
+      string p = strs[0];
+      int l = p.length();
+      
+      for(size_t i = 1; i<strs.size(); i++) {
+	    if(strs[i] != p) {
+	      p.resize(--l);
+	    }
+      }
+
+      if(p.length() != 0) {
+      return p;
+      } else { return "";}
+    }
+};
+
 
 // my new solution using just the substr method for c++
 // this would theoretically work except for a million stupid fucking edge cases
-// O(mn) time complexity
+// O(mn) time complexity (string length times length of array)
 class Solution {
 public:
   string longestCommonPrefix(vector<string>& strs) {
