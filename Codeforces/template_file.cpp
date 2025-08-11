@@ -1,8 +1,8 @@
-#include <bits/stdc++.h>
+ #include <bits/stdc++.h>
 
 using namespace std;
 using vi = vector<int>;
-using ll == long long;
+using ll = long long;
 
 
 void solve() {

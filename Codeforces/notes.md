@@ -5,7 +5,7 @@ https://usaco.guide/bronze/intro-complete
 Codeforces Guide:
 https://codeforces.com/catalog
 
-
+	
 ## Begginner Topics
 - knowing your STL
 - Searching and Sorting
