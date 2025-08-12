@@ -5,13 +5,25 @@ using vi = vector<int>;
 using ll = long long;
 
 //Problem Description:
+// queue of N people (1..n)
+// Girls move up in the queue while boys stay let them move up
+// given (1 <= n,t <= 50)
 
-//Potential Solutions:
+//Solution:
+// use swap?
+// iterate backwards?
+// research queue structure c++
 
 void solve() {
 
-  
-  
+  string s;
+  int n, t;
+
+  cin >> n >> t;
+  cin >> s;
+
+
+
 }
 
 int main() {
@@ -27,3 +39,4 @@ int main() {
 
   return 0;
 }
+
