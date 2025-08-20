@@ -1,4 +1,4 @@
- #include <bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 using vi = vector<int>;
@@ -13,6 +13,9 @@ using ll = long long;
 
 //Potential Solutions:
 // find the min jump for each tower height?
+// sort array, and then compare height at k to max tower (first case?)
+// compare height to next tower
+// array of differences for height of each tower in sorted array
 
 void solve() {
 
@@ -20,10 +23,23 @@ void solve() {
   cin >> n >> k;
 
   int a[n];
+  int diff[n];
 
   for(int i=0; i<n; i++) { cin >> a[i]; }
 
+  int hk = a[k-1];  // one based indexing
+  int sum = 0;
+  int size = sizeof(a) / sizeof(a[n]);
 
+  sort(a, a + size);
+
+  for(int i=0; i<n-1; i++) {
+    diff[i] = a[i+1] - a[i];
+    sum += diff[i];
+    if(i+1 >= sum) { cout << "NO" << endl; return; }
+  }
+
+  cout << "YES" << endl;
 }
 
 int main() {
